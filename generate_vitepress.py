@@ -121,3 +121,21 @@ def generate_vitepress(data: RepoRequest):
         # Cleanup temp repo but keep output
         if os.path.exists(temp_repo):
             shutil.rmtree(temp_repo)
+
+
+"""
+Required pip dependencies
+
+python3 -m venv venv
+source venv/bin/activate
+pip install fastapi uvicorn pydantic gitpython
+
+uvicorn app:app --reload --port 8000
+
+curl -X POST http://localhost:8000/generate-vitepress \
+     -H "Content-Type: application/json" \
+     -d '{"repo_url": "https://github.com/username/repo"}'
+
+or use FastAPI Swagger
+http://127.0.0.1:8000/docs 
+"""
